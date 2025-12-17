@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShivaCodex | AI SaaS & No-Code Development Agency</title>
+    <meta name="description" content="Professional AI-powered SaaS platforms and no-code websites for US/UK businesses. Fast delivery, scalable solutions, 100% client satisfaction.">
+    <meta name="keywords" content="no-code development, AI SaaS, Bubble developer, Webflow expert, n8n automation, MVP development">
+    <meta property="og:title" content="ShivaCodex - AI SaaS & No-Code Development">
+    <meta property="og:description" content="Launch your SaaS MVP or website in 2-3 weeks. Professional no-code development with AI integration.">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-border {
+            position: relative;
+            background: #1a1a1a;
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .glass-card {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow-button {
+            position: relative;
+            overflow: hidden;
+        }
+        .glow-button::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .glow-button:hover::before {
+            opacity: 1;
+        }
+
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+        .card-3d:hover {
+            transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(10px);
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .animate-float-delay {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+
+        .animate-pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(14, 165, 233, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(14, 165, 233, 0.6); }
+        }
+
+        .grid-bg {
+            background-image: 
+                linear-gradient(rgba(14, 165, 233, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mesh-gradient {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .counter-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .project-card {
+            transition: all 0.4s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(14, 165, 233, 0.25);
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        .menu-open .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu-open .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-open .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .skill-tag {
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .price-card {
+            transition: all 0.3s ease;
+        }
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+        .price-card.featured {
+            border: 2px solid #0ea5e9;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="text-2xl font-bold gradient-text">SHIVACODEX</a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white transition-colors">Projects</a>
+                    <a href="#skills" class="text-gray-300 hover:text-white transition-colors">Skills</a>
+                    <a href="#pricing" class="text-gray-300 hover:text-white transition-colors">Pricing</a>
+                    <a href="#contact" class="px-6 py-2.5 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full font-medium hover:shadow-lg hover:shadow-sky-500/30 transition-all">Book Free Call</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden flex flex-col space-y-1.5 p-2">
+                    <span class="hamburger-line w-6 h-0.5 bg-white block"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-white block"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-white block"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden fixed inset-0 bg-[#0a0a0a]/95 nav-blur z-40 hidden">
+            <div class="flex flex-col items-center justify-center h-full space-y-8">
+                <a href="#home" class="text-2xl text-white hover:text-sky-400 transition-colors mobile-link">Home</a>
+                <a href="#about" class="text-2xl text-white hover:text-sky-400 transition-colors mobile-link">About</a>
+                <a href="#services" class="text-2xl text-white hover:text-sky-400 transition-colors mobile-link">Services</a>
+                <a href="#projects" class="text-2xl text-white hover:text-sky-400 transition-colors mobile-link">Projects</a>
+                <a href="#skills" class="text-2xl text-white hover:text-sky-400 transition-colors mobile-link">Skills</a>
+                <a href="#pricing" class="text-2xl text-white hover:text-sky-400 transition-colors mobile-link">Pricing</a>
+                <a href="#testimonials" class="text-2xl text-white hover:text-sky-400 transition-colors mobile-link">Testimonials</a>
+                <a href="#contact" class="text-2xl text-white hover:text-sky-400 transition-colors mobile-link">Contact</a>
+                <a href="#contact" class="mt-4 px-8 py-3 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full font-medium text-lg mobile-link">Book Free Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
+        <!-- Mesh Gradients -->
+        <div class="mesh-gradient bg-sky-500 top-20 -left-40 animate-float"></div>
+        <div class="mesh-gradient bg-cyan-500 bottom-20 -right-40 animate-float-delay"></div>
+        
+        <!-- Floating 3D Shapes -->
+        <div class="absolute top-1/4 left-10 w-20 h-20 border border-sky-500/30 rounded-xl animate-float" style="transform: rotate(45deg);"></div>
+        <div class="absolute bottom-1/4 right-20 w-16 h-16 border border-cyan-500/30 rounded-full animate-float-delay"></div>
+        <div class="absolute top-1/3 right-1/4 w-12 h-12 bg-gradient-to-br from-sky-500/20 to-cyan-500/20 rounded-lg animate-float" style="animation-delay: -1s;"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+            <div class="fade-in">
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+                    <span class="gradient-text">SHIVACODEX</span>
+                </h1>
+                <p class="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-4">
+                    Building AI-Powered SaaS & No-Code Websites
+                </p>
+                <p class="text-xl sm:text-2xl lg:text-3xl text-white font-semibold mb-8">
+                    That Scale Your Business
+                </p>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-10">
+                    I help US & UK businesses launch MVPs and high-converting websites without the complexity of traditional development. Fast delivery. Scalable solutions. Premium results.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="#contact" class="px-8 py-4 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-sky-500/30 transition-all transform hover:scale-105">
+                        BOOK FREE CALL
+                    </a>
+                    <a href="#projects" class="px-8 py-4 border border-gray-600 rounded-full font-semibold text-lg hover:border-sky-500 hover:text-sky-400 transition-all">
+                        VIEW PROJECTS
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="flex items-center justify-center gap-2 text-gray-300">
+                        <svg class="w-5 h-5 text-sky-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>10+ Projects Delivered</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 text-gray-300">
+                        <svg class="w-5 h-5 text-sky-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>100% Client Satisfaction</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 text-gray-300">
+                        <svg class="w-5 h-5 text-sky-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>2-3 Week Delivery</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 text-gray-300">
+                        <svg class="w-5 h-5 text-sky-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Scalable & Fast</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 lg:py-32 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+                        About <span class="gradient-text">ShivaCodex</span>
+                    </h2>
+                    <p class="text-gray-300 text-lg mb-6">
+                        Hi, I'm <strong class="text-white">Muthuraj</strong>—founder of ShivaCodex, a no-code development agency specializing in AI-powered SaaS platforms and modern websites.
+                    </p>
+                    <p class="text-gray-400 mb-6">
+                        I help entrepreneurs, startups, and small businesses in the US and UK transform their ideas into reality without the headaches of traditional development.
+                    </p>
+                    <p class="text-gray-400 mb-6">Using cutting-edge no-code and AI tools, I build:</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <span class="text-sky-400">→</span> AI-powered SaaS platforms and MVPs
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <span class="text-sky-400">→</span> Intelligent automation systems
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <span class="text-sky-400">→</span> High-converting business websites
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <span class="text-sky-400">→</span> Custom AI integrations and chatbots
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-block px-8 py-3 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full font-semibold hover:shadow-lg hover:shadow-sky-500/30 transition-all">
+                        Schedule a Call
+                    </a>
+                </div>
+
+                <div class="fade-in">
+                    <div class="glass-card rounded-2xl p-8 space-y-6">
+                        <h3 class="text-2xl font-semibold mb-6">What sets ShivaCodex apart:</h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Rapid Development</h4>
+                                    <p class="text-gray-400 text-sm">2-3 week delivery on most projects</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Scalable Architecture</h4>
+                                    <p class="text-gray-400 text-sm">Built to grow with your business</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">AI-First Approach</h4>
+                                    <p class="text-gray-400 text-sm">Leverage automation and intelligence</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Cost-Effective</h4>
+                                    <p class="text-gray-400 text-sm">Premium results without agency prices</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Clear Communication</h4>
+                                    <p class="text-gray-400 text-sm">Fluent English, timezone-flexible</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-6 border-t border-gray-700 text-center">
+                            <p class="text-gray-400">Based in <span class="text-sky-400">India</span> | Serving <span class="text-sky-400">US/UK</span> Clients | <span class="text-green-400">Available</span> for New Projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 lg:py-32 bg-[#111111] relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">What We <span class="gradient-text">Build</span></h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Comprehensive solutions tailored to your business needs</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-card rounded-2xl p-8 card-3d fade-in">
+                    <div class="w-14 h-14 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI-Powered SaaS Platforms</h3>
+                    <p class="text-gray-400 mb-6">Launch your SaaS MVP with AI capabilities built-in. From user authentication to payment processing, database management to intelligent features—complete platforms ready for users.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">Bubble</span>
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">Webflow</span>
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">n8n</span>
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">OpenAI</span>
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">Make</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-700">
+                        <div>
+                            <p class="text-gray-500 text-sm">Timeline: 3-6 weeks</p>
+                            <p class="text-white font-semibold">Starting: $2,500</p>
+                        </div>
+                        <a href="#contact" class="px-6 py-2 border border-sky-500 text-sky-400 rounded-full hover:bg-sky-500 hover:text-white transition-all">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card rounded-2xl p-8 card-3d fade-in">
+                    <div class="w-14 h-14 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">No-Code Websites</h3>
+                    <p class="text-gray-400 mb-6">Professional, fast-loading websites that convert visitors into customers. Perfect for businesses, consultants, and service providers who need a premium digital presence.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">Webflow</span>
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">Framer</span>
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">WordPress</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-700">
+                        <div>
+                            <p class="text-gray-500 text-sm">Timeline: 2-3 weeks</p>
+                            <p class="text-white font-semibold">Starting: $1,200</p>
+                        </div>
+                        <a href="#contact" class="px-6 py-2 border border-sky-500 text-sky-400 rounded-full hover:bg-sky-500 hover:text-white transition-all">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card rounded-2xl p-8 card-3d fade-in">
+                    <div class="w-14 h-14 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI Automation & Integrations</h3>
+                    <p class="text-gray-400 mb-6">Automate workflows, connect your tools, and build intelligent systems that save time and reduce manual work. Custom chatbots, data pipelines, and business automation.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">n8n</span>
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">Make</span>
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">Zapier</span>
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">OpenAI</span>
+                        <span class="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm">Pinecone</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-700">
+                        <div>
+                            <p class="text-gray-500 text-sm">Timeline: 1-2 weeks</p>
+                            <p class="text-white font-semibold">Starting: $800</p>
+                        </div>
+                        <a href="#contact" class="px-6 py-2 border border-sky-500 text-sky-400 rounded-full hover:bg-sky-500 hover:text-white transition-all">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card rounded-2xl p-8 card-3d fade-in">
+                    <div class="w-14 h-14 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Monthly Maintenance & Support</h3>
+                    <p class="text-gray-400 mb-6">Keep your platform running smoothly with ongoing updates, monitoring, optimizations, and technical support. Priority access and monthly performance reports.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Updates</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Bug Fixes</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Optimization</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Priority Support</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-700">
+                        <div>
+                            <p class="text-gray-500 text-sm">Ongoing support</p>
+                            <p class="text-white font-semibold">Starting: $500/month</p>
+                        </div>
+                        <a href="#contact" class="px-6 py-2 border border-sky-500 text-sky-400 rounded-full hover:bg-sky-500 hover:text-white transition-all">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 lg:py-32 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">Featured <span class="gradient-text">Projects</span></h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Real solutions for real businesses—AI-powered platforms and intelligent websites that drive results.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden fade-in">
+                    <div class="h-48 bg-gradient-to-br from-sky-900 to-cyan-900 flex items-center justify-center">
+                        <div class="text-center">
+                            <svg class="w-16 h-16 text-sky-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            <span class="text-sky-300 font-medium">EchoEstate</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-sky-500/20 text-sky-400 rounded text-xs">AI</span>
+                            <span class="px-2 py-1 bg-sky-500/20 text-sky-400 rounded text-xs">SaaS</span>
+                            <span class="px-2 py-1 bg-sky-500/20 text-sky-400 rounded text-xs">Real Estate</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">EchoEstate</h3>
+                        <p class="text-gray-400 text-sm mb-4">An intelligent property listing platform with AI-driven property matching, automated valuations, and predictive market insights for buyers, sellers, and agents.</p>
+                        <ul class="text-gray-500 text-sm space-y-1 mb-4">
+                            <li>• Smart property matching algorithm</li>
+                            <li>• Automated AI valuations</li>
+                            <li>• Predictive market analytics</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">Bubble</span>
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">OpenAI</span>
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">PostgreSQL</span>
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">Stripe</span>
+                        </div>
+                        <a href="#contact" class="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center gap-1">
+                            View Case Study <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden fade-in">
+                    <div class="h-48 bg-gradient-to-br from-orange-900 to-red-900 flex items-center justify-center">
+                        <div class="text-center">
+                            <svg class="w-16 h-16 text-orange-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                            <span class="text-orange-300 font-medium">TableTalk</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-orange-500/20 text-orange-400 rounded text-xs">AI Chatbot</span>
+                            <span class="px-2 py-1 bg-orange-500/20 text-orange-400 rounded text-xs">Automation</span>
+                            <span class="px-2 py-1 bg-orange-500/20 text-orange-400 rounded text-xs">Hospitality</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">TableTalk</h3>
+                        <p class="text-gray-400 text-sm mb-4">Restaurant website featuring an AI-powered assistant that handles reservations, answers menu questions, and provides personalized recommendations.</p>
+                        <ul class="text-gray-500 text-sm space-y-1 mb-4">
+                            <li>• AI chatbot for inquiries</li>
+                            <li>• Automated reservations</li>
+                            <li>• 60% reduction in staff workload</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">Webflow</span>
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">n8n</span>
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">OpenAI</span>
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">Airtable</span>
+                        </div>
+                        <a href="#contact" class="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center gap-1">
+                            View Case Study <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden fade-in">
+                    <div class="h-48 bg-gradient-to-br from-green-900 to-emerald-900 flex items-center justify-center">
+                        <div class="text-center">
+                            <svg class="w-16 h-16 text-green-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            <span class="text-green-300 font-medium">FitMind</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded text-xs">SaaS</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded text-xs">AI Trainer</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded text-xs">Health & Fitness</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">FitMind</h3>
+                        <p class="text-gray-400 text-sm mb-4">Subscription-based fitness SaaS with an AI personal trainer that creates custom workout plans, tracks progress, and adapts routines based on performance.</p>
+                        <ul class="text-gray-500 text-sm space-y-1 mb-4">
+                            <li>• AI-generated workout plans</li>
+                            <li>• Progress tracking & analytics</li>
+                            <li>• Nutrition recommendations</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">Bubble</span>
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">OpenAI</span>
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">Stripe</span>
+                        </div>
+                        <a href="#contact" class="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center gap-1">
+                            View Case Study <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden fade-in">
+                    <div class="h-48 bg-gradient-to-br from-purple-900 to-indigo-900 flex items-center justify-center">
+                        <div class="text-center">
+                            <svg class="w-16 h-16 text-purple-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                            <span class="text-purple-300 font-medium">Finance AI</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded text-xs">AI/ML</span>
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded text-xs">Analytics</span>
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded text-xs">FinTech</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">AI Financial Forecasting</h3>
+                        <p class="text-gray-400 text-sm mb-4">Enterprise-grade predictive analytics tool that leverages ML to forecast revenue, identify trends, detect anomalies, and provide actionable business intelligence.</p>
+                        <ul class="text-gray-500 text-sm space-y-1 mb-4">
+                            <li>• Predictive revenue forecasting</li>
+                            <li>• Trend analysis & pattern detection</li>
+                            <li>• Custom reporting dashboards</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">Bubble</span>
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">Python</span>
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">OpenAI</span>
+                            <span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">Chart.js</span>
+                        </div>
+                        <a href="#contact" class="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center gap-1">
+                            View Case Study <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section class="py-16 bg-gradient-to-r from-sky-900/30 to-cyan-900/30 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="text-4xl lg:text-5xl font-bold gradient-text counter-number" data-target="10">0</div>
+                    <div class="text-gray-400 mt-2">Projects Delivered</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl lg:text-5xl font-bold gradient-text counter-number" data-target="100">0</div>
+                    <div class="text-gray-400 mt-2">Client Satisfaction %</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl lg:text-5xl font-bold gradient-text">2-3</div>
+                    <div class="text-gray-400 mt-2">Weeks Delivery</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl lg:text-5xl font-bold gradient-text">$1000+</div>
+                    <div class="text-gray-400 mt-2">Monthly Retainers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 lg:py-32 bg-[#111111] relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">Technical <span class="gradient-text">Expertise</span></h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">The tools and platforms I use to build scalable, intelligent solutions.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- No-Code Platforms -->
+                <div class="glass-card rounded-2xl p-6 fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-sky-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold">No-Code Platforms</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Bubble</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Webflow</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Framer</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">WordPress</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Shopify</span>
+                    </div>
+                </div>
+
+                <!-- AI & Automation -->
+                <div class="glass-card rounded-2xl p-6 fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-sky-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold">AI & Automation</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">n8n</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Make</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Zapier</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">OpenAI API</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">LangChain</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Pinecone</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Voiceflow</span>
+                    </div>
+                </div>
+
+                <!-- Databases & Backend -->
+                <div class="glass-card rounded-2xl p-6 fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-sky-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold">Databases & Backend</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Airtable</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Supabase</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Firebase</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">PostgreSQL</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Xano</span>
+                    </div>
+                </div>
+
+                <!-- Integrations & Tools -->
+                <div class="glass-card rounded-2xl p-6 fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-sky-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold">Integrations & Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Stripe</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Twilio</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">SendGrid</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Google APIs</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Slack API</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Calendly</span>
+                    </div>
+                </div>
+
+                <!-- Design & UX -->
+                <div class="glass-card rounded-2xl p-6 fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-sky-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold">Design & UX</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Figma</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Adobe XD</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Canva</span>
+                    </div>
+                </div>
+
+                <!-- Development -->
+                <div class="glass-card rounded-2xl p-6 fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-sky-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold">Development</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">HTML/CSS</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">JavaScript</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">Python</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#1a1a1a] border border-gray-700 rounded-lg text-sm text-gray-300">REST APIs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 lg:py-32 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">Investment <span class="gradient-text">Options</span></h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Transparent pricing for quality work. Choose what fits your needs.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Starter -->
+                <div class="price-card glass-card rounded-2xl p-6 fade-in">
+                    <h3 class="text-xl font-semibold mb-2">Starter Website</h3>
+                    <p class="text-gray-400 text-sm mb-4">Professional web presence</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">$1,200</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Up to 7 pages
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Mobile-responsive design
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Contact form integration
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Basic SEO setup
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            2-3 week delivery
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            30 days support
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full py-3 text-center border border-sky-500 text-sky-400 rounded-full hover:bg-sky-500 hover:text-white transition-all font-medium">Get Started</a>
+                </div>
+
+                <!-- AI SaaS MVP -->
+                <div class="price-card glass-card rounded-2xl p-6 featured relative fade-in">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full text-xs font-medium">POPULAR</div>
+                    <h3 class="text-xl font-semibold mb-2">AI SaaS MVP</h3>
+                    <p class="text-gray-400 text-sm mb-4">Launch your product fast</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">$2,500</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            User authentication
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Database setup
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            AI feature integration
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Payment processing
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Admin dashboard
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            3-6 week delivery
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            60 days support
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full py-3 text-center bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full font-medium hover:shadow-lg hover:shadow-sky-500/30 transition-all">Get Started</a>
+                </div>
+
+                <!-- Monthly Support -->
+                <div class="price-card glass-card rounded-2xl p-6 fade-in">
+                    <h3 class="text-xl font-semibold mb-2">Monthly Support</h3>
+                    <p class="text-gray-400 text-sm mb-4">Ongoing maintenance</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">$500</span>
+                        <span class="text-gray-400">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            5 hours updates/month
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Performance monitoring
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Bug fixes
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Priority support (24hr)
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Monthly optimization
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Analytics reporting
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full py-3 text-center border border-sky-500 text-sky-400 rounded-full hover:bg-sky-500 hover:text-white transition-all font-medium">Get Started</a>
+                </div>
+
+                <!-- Premium -->
+                <div class="price-card glass-card rounded-2xl p-6 fade-in">
+                    <h3 class="text-xl font-semibold mb-2">Premium Package</h3>
+                    <p class="text-gray-400 text-sm mb-4">Complete platform build</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">$5,000</span>
+                        <span class="text-gray-400">+</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Everything in MVP
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Advanced AI features
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Multi-user roles
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Real-time features
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            3rd party integrations
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            6-12 week delivery
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-300">
+                            <svg class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            90 days + training
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full py-3 text-center border border-sky-500 text-sky-400 rounded-full hover:bg-sky-500 hover:text-white transition-all font-medium">Custom Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 lg:py-32 bg-[#111111] relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">Client <span class="gradient-text">Success Stories</span></h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">What clients say about working with ShivaCodex</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass-card rounded-2xl p-8 fade-in">
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">"Muthuraj transformed our entire business operations with an AI-powered platform that reduced our customer service costs by 40%. His understanding of both technology and business strategy is exceptional."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold">DH</div>
+                        <div>
+                            <p class="font-semibold">Dinesh Hooda</p>
+                            <p class="text-gray-400 text-sm">CEO, Shivguruttava AI • Pune, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass-card rounded-2xl p-8 fade-in">
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">"We hired Muthuraj to build our SaaS MVP, and he exceeded every expectation. His communication was always clear, deadlines were met, and the final product was polished and ready for market."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold">DA</div>
+                        <div>
+                            <p class="font-semibold">Dr. Amol Patil</p>
+                            <p class="text-gray-400 text-sm">Healthcare Consultant • Mumbai, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card glass-card rounded-2xl p-8 fade-in">
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">"The AI automation system Muthuraj built for our business has been a game-changer. Response times dropped from hours to seconds, and our conversion rate increased by 35%."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold">SK</div>
+                        <div>
+                            <p class="font-semibold">Sarah Kennedy</p>
+                            <p class="text-gray-400 text-sm">Founder, TechStart • London, UK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 lg:py-32 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">Let's Build Your <span class="gradient-text">Next Project</span></h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Ready to launch your SaaS platform or upgrade your website? Book a free 15-minute strategy call and let's discuss how ShivaCodex can help.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="fade-in">
+                    <div class="glass-card rounded-2xl p-8 mb-8">
+                        <h3 class="text-2xl font-semibold mb-6">Get in Touch</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Email</h4>
+                                    <a href="mailto:shivacodex322@gmail.com" class="text-sky-400 hover:text-sky-300">shivacodex322@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Response Time</h4>
+                                    <p class="text-gray-400">Within 12-24 hours</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Timezone</h4>
+                                    <p class="text-gray-400">IST (Flexible for US/UK calls)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Availability</h4>
+                                    <p class="text-green-400">Open for new projects</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="block w-full py-4 text-center bg-gradient-to-r from-sky-500 to-cyan-500 rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-sky-500/30 transition-all">
+                        📅 Book Free 15-Min Strategy Call
+                    </a>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <form id="contactForm" class="glass-card rounded-2xl p-8">
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Full Name *</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-700 rounded-xl focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors text-white placeholder-gray-500" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Email Address *</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-700 rounded-xl focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors text-white placeholder-gray-500" placeholder="your@email.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Company/Website</label>
+                                <input type="text" name="company" class="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-700 rounded-xl focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors text-white placeholder-gray-500" placeholder="Your company or website">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Project Type *</label>
+                                <select name="projectType" required class="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-700 rounded-xl focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors text-white">
+                                    <option value="">Select project type</option>
+                                    <option value="ai-saas">AI SaaS Platform</option>
+                                    <option value="website">No-Code Website</option>
+                                    <option value="automation">Automation & Integration</option>
+                                    <option value="support">Monthly Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Budget Range</label>
+                                <select name="budget" class="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-700 rounded-xl focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors text-white">
+                                    <option value="">Select budget range</option>
+                                    <option value="1000-2500">$1,000 - $2,500</option>
+                                    <option value="2500-5000">$2,500 - $5,000</option>
+                                    <option value="5000-10000">$5,000 - $10,000</option>
+                                    <option value="10000+">$10,000+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Project Details *</label>
+                                <textarea name="message" required rows="4" class="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-700 rounded-xl focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors text-white placeholder-gray-500 resize-none" placeholder="Tell me about your project, goals, and timeline"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-sky-500/30 transition-all">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-[#111111] border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <a href="#" class="text-2xl font-bold gradient-text mb-4 inline-block">SHIVACODEX</a>
+                    <p class="text-gray-400 max-w-md">Building intelligent, scalable digital products for forward-thinking businesses. From concept to deployment—strategically built for growth.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-sky-400 transition-colors">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-sky-400 transition-colors">Services</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-sky-400 transition-colors">Projects</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-sky-400 transition-colors">Skills</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-sky-400 transition-colors">Pricing</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-sky-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-sky-400 transition-colors">AI SaaS Platforms</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-sky-400 transition-colors">No-Code Websites</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-sky-400 transition-colors">Automation</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-sky-400 transition-colors">Monthly Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2024 ShivaCodex. All rights reserved.</p>
+                <p class="text-gray-500 text-sm">Built with precision by Muthuraj</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('menu-open');
+            mobileMenu.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('menu-open');
+                mobileMenu.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-[#0a0a0a]/90', 'nav-blur', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-[#0a0a0a]/90', 'nav-blur', 'shadow-lg');
+            }
+        });
+
+        // Fade in on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter-number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.dataset.target);
+                    if (target) {
+                        animateCounter(entry.target, target);
+                    }
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 30);
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message
+            alert('Thank you for your message! I will get back to you within 24 hours.');
+            this.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
